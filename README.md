@@ -7,23 +7,20 @@ It's an application created with PHP Laravel 9 framework as Backend part of the 
 To run the project Frontend and Backend parts of the projects must be started.
 
 
-#### Project use and is created with:
+#### Project is created with:
 * React library as frontent part
 * Laravel 9 framework as backend part
 * MySQL
 
 
 #### Functionality
-* user registration / user login
-* registered user can create, update, delete content: restaurants/dishes
-* Page content preview is possible without login.
-* see all restaurants/dishes and updates from database
+* User registration and login
+* Registered users can create, update, delete content: restaurants and dishes
+* Page content preview does not require user login
 
 
-
-## Launch BackEnd part
-
-* Clone repository as backend part: https://github.com/BrigitaGrybaiteBartke/restorant_BE.git
+## Project launch steps
+* Clone repository: https://github.com/BrigitaGrybaiteBartke/restorant_BE.git
 * Run XAMPP and Mysql database
 * Open XAMPP htdocs folder - clone application code to this folder
 * Install Composer locally in the current directory
@@ -34,8 +31,8 @@ To run the project Frontend and Backend parts of the projects must be started.
 php composer.phar install
 ```
 
-* Change .envexample name to .env in your 
-* Run migrations and seeders by typing:
+* Change .envexample name to .env
+* Run migrations and seeders:
 
 ```
 php artisan migrate
@@ -43,13 +40,8 @@ php artisan migrate
 php artisan db:seed
 ```
 
-* To run the project:
+* To start project
 
 ```
 php artisan serve
 ```
-
-* To run project in React part follow the launch procedure here:
-
-
-

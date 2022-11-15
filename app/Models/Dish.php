@@ -22,6 +22,7 @@ class Dish extends Model
         return $this->hasMany('App\Models\Rating');
     }
 
+
 }
 
 

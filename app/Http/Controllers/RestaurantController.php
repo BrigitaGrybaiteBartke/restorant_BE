@@ -25,7 +25,9 @@ class RestaurantController extends Controller
             'address' => 'required|max:255',
             'workingTime' => 'required|max:255',
         ]);
-        return Restaurant::create($request->all());
+        return Restaurant::create($request->all())
+            ? response()->json(['success' => 'Created successfully'], 201)
+            : response()->json(['error' => 'Creation failed'], 500);
     }
 
 
@@ -47,14 +49,21 @@ class RestaurantController extends Controller
         ]);
         $restaurant = Restaurant::find($id);
         $restaurant->update($request->all());
-        return $restaurant;
+        return $restaurant
+            ? response()->json(['success' => 'Updated successfully'], 200)
+            : response()->json(['error' => 'Update failed'], 500);
     }
-
 
     public function destroy($id)
     {
         return Restaurant::destroy($id) === 0
             ? response(["status" => "failure"], 404)
             : response(["status" => "success"], 200);
+    }
+
+    function searchRestaurant($key = null)
+    {
+        return Restaurant::where('title', 'Like', "%$key%")->get();
+        // return Restaurant::where('title', 'Like', "%$key%")->with('dishes')->get();
     }
 }

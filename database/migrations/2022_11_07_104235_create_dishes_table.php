@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('price');
+            $table->decimal('price');
             $table->string('image');
             $table->unsignedBigInteger('restaurants_id')->nullable;
             // $table->foreign('restaurants_id')->nullable()->references('id')->on('restaurants')
@@ -27,6 +27,10 @@ return new class extends Migration
         });
 
     }
+            // $table->float('price', 8, 2);
+
+
+
 
 
     /**

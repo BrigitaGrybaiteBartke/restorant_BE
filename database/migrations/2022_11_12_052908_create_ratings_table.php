@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('rating');
-            $table->unsignedBigInteger('dish_id')->nullable;
+            $table->unsignedBigInteger('dish_id')->nullable();
             $table->foreign('dish_id')->references('id')->on('dishes')
             ->onDelete('cascade')
             ->onUpdate('restrict');

@@ -9,28 +9,10 @@ use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
-    // public function save(Request $request)
-    // {
-    //     $request->validate([
-    //         'rating' => 'required|max:255',
-    //         'dish_id' => 'required'
-    //     ]);
-
-    //     $result = Dish::find($request->post('dish_id'))
-    //         ->rating()
-    //         ->save(Rating::create($request->all()));
-
-    //     return $result;
-    // }
-
-
     public function index()
     {
-        // return Rating::all();
         return Rating::with('dishes')->get();
     }
-
-
 
     public function store(Request $request)
     {
@@ -41,13 +23,10 @@ class RatingController extends Controller
             : response()->json(['error' => 'Creation failed'], 500);
     }
 
-
     public function show(Rating $rating)
     {
-        // return Rating::find($rating);
         return $rating;
     }
-
 
     public function update(Request $request, Rating $rating)
     {
@@ -57,12 +36,10 @@ class RatingController extends Controller
             : response()->json(['error' => 'Update failed'], 500);
     }
 
-
     public function destroy(Rating $rating)
     {
         return ($rating->delete())
             ? response()->json(['success' => 'Deleted successfully'], 200)
             : response()->json(['error' => 'Failed'], 500);
     }
-
 }

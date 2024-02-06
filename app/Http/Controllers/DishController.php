@@ -13,14 +13,10 @@ class DishController extends Controller
         if ($request)
             // return Dish::all();
             return Dish::with('rating')->get();
-
         }
-
-
 
     public function store(Request $request) // create new dish
     {
-        // error_log($request);
         $request->validate([
             'title' => 'bail|required|unique:dishes,title|max:255',
             'price' => 'required|max:255',
@@ -32,26 +28,12 @@ class DishController extends Controller
             : response()->json(['error' => 'Creation failed'], 500);
     }
 
-
-    // $dish = Dish::find($id);
-    // $dish->update($request->all());
-    // return $dish
-    // // return ($dish->save())
-    // ? response()->json(['success' => 'Updated successfully'], 200)
-    // : response()->json(['error' => 'Update failed'], 500);
-    //     return ($dish->save())
-    //         ? response()->json(['success' => 'Created successfully'], 201)
-    //         : response()->json(['error' => 'Creation failed'], 500);
-
-
-
     public function show($id, Request $request) // show single dish
     {
         if ($request)
             // return Dish::find($id);
             return Dish::with('rating')->find($id);
     }
-
 
     public function update(Request $request, $id)
     {
@@ -70,15 +52,10 @@ class DishController extends Controller
         : response()->json(['error' => 'Update failed'], 500);
     }
 
-
-
-
     public function destroy($id)
     {
         return Dish::destroy($id) === 0
             ? response(["status" => "failure"], 404)
             : response(["status" => "success"], 200);
     }
-
-
 }

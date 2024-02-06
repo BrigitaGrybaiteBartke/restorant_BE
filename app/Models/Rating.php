@@ -10,9 +10,7 @@ class Rating extends Model
     use HasFactory;
 
     protected $fillable = ['rating', 'dish_id'];
-
     protected $hidden = ['created_at', 'updated_at'];
-
 
     public function dish() {
         return $this->belongsTo('App\Models\Dish');

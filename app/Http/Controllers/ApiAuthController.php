@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ApiAuthController extends Controller
 {
-
-    // Registration
     public function register(Request $request)
     {
         $fields = $request->validate([
@@ -30,8 +28,6 @@ class ApiAuthController extends Controller
         return response(['user' => $user, 'token' => $token]);
     }
 
-
-    // Login
     public function login(Request $request)
     {
         $fields = $request->validate([
@@ -46,8 +42,6 @@ class ApiAuthController extends Controller
         return response(["message" => "Invalid authentication credentials"], 401);
     }
 
-
-    // Logout
     public function logout()
     {
         Auth::user()->tokens()->delete();

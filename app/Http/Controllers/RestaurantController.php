@@ -8,14 +8,12 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-
     public function index(Request $request) // get all restaurants
     {
         if ($request->embed === "dishes")
             return Restaurant::with('dishes')->get();
         return Restaurant::all();
     }
-
 
     public function store(Request $request) // create new
     {
@@ -30,14 +28,12 @@ class RestaurantController extends Controller
             : response()->json(['error' => 'Creation failed'], 500);
     }
 
-
     public function show($id, Request $request) // get single
     {
         if ($request)
             $singleRestaurant = Restaurant::find($id);
         return $singleRestaurant;
     }
-
 
     public function update(Request $request, $id)
     {

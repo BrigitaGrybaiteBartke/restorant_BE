@@ -12,12 +12,7 @@ class Restaurant extends Model
     protected $fillable = ['title', 'city', 'address', 'workingTime'];
     protected $hidden = ['created_at', 'updated_at'];
 
-
     public function dish() {
         return $this->hasMany('App\Models\Dish');
         }
-
-    /**
-     */
-
 }

@@ -17,7 +17,10 @@ To run the project Frontend and Backend parts of the projects must be started.
 * Page content preview does not require user login
 
 ## Project launch steps
-* Clone repository: https://github.com/BrigitaGrybaiteBartke/restorant_BE.git
+* Clone repository:
+```
+git clone https://github.com/BrigitaGrybaiteBartke/restorant_BE.git
+```
 * Run XAMPP and Mysql database
 * Open XAMPP htdocs folder - clone application code to this folder
 * Install Composer locally in the current directory
@@ -37,7 +40,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-* To start project
+* To start the project
 
 ```
 php artisan serve
